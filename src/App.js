@@ -1,10 +1,17 @@
 
 import './App.css';
+import Navigation from './components/navigation';
+import Slider from './components/slider';
+import Footer from './components/footer';
+import Dashboard from './components/dashboard';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello Warld</h1>
+      <Navigation />
+      <Slider />
+      <Dashboard />
+      <Footer />
     </div>
   );
 }
