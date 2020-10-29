@@ -7,8 +7,9 @@ import Dashboard from './components/dashboard';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App wrapper">
       <Navigation />
+     
       <Slider />
       <Dashboard />
       <Footer />

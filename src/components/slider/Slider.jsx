@@ -1,10 +1,12 @@
 import React from 'react';
+import slider from '../../img/slide.png';
+import './slider.css';
 
 
 const Slider=()=> {
   return (
-    <div>
-      <h2>Slider</h2>
+    <div className="slider">
+      <img className="slider__image" src={slider} alt="slider" />
     </div>
   )
 }
