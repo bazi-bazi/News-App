@@ -10,10 +10,11 @@ import { createFirestoreInstance, getFirestore } from "redux-firestore";
 import { rootReducer } from "./redux/reducers/rootReducer";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-
 import { logger } from "redux-logger";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from 'redux-thunk'
+
+/// Firebase config
 
 const firebaseConfig = {
   apiKey: "AIzaSyBYxODoEH_hhq0fVc7AAqk1sj6ou04jJ4A",
@@ -32,6 +33,8 @@ const rrfConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
+
+/// Store config
 
 const initialState = {};
 const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(logger, thunk.withExtraArgument({getFirebase, getFirestore})))

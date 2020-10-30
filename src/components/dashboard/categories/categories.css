@@ -1,11 +1,54 @@
 .categories {
   left: 10%; 
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  width: 236px; /* Set the width of the sidebar */
+  position: static;
   z-index: 1; /* Stay on top */
-  background-color: #111; /* Black */
+  background-color: #fff; 
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  padding-left: 1.9rem;
+  padding-right: 1.9rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.11);
+
+}
+
+.categories__title {
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: left;
+  color: #263843;
+  padding-bottom: 1rem;
+  padding-top: 3.4rem;
+}
+
+.categories__line {
+ width: 191px;
+ height: 0px;
+ background: transparent;
+ border: 1px solid #707070;
+ opacity: 0.16;
+}
+
+.categories__list {
+padding-top: 1rem;
+font-weight: 500;
+font-size: 1.6rem;
+line-height: 41px;
+text-align: left;
+color: #768791;
+list-style: none;
+text-transform: capitalize;
+}
+
+.categories__list span {
+  padding-left: 1rem;
+}
+
+.active {
+  font-weight: 700;
+  color: #263843;
 }
 

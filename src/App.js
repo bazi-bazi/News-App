@@ -1,4 +1,4 @@
-
+import React from 'react';
 import './App.css';
 import Navigation from './components/navigation';
 import Slider from './components/slider';
@@ -7,13 +7,14 @@ import Dashboard from './components/dashboard';
 
 function App() {
   return (
+    <>
     <div className="App wrapper">
       <Navigation />
-     
       <Slider />
-      <Dashboard />
-      <Footer />
+      <Dashboard />   
     </div>
+    <Footer />
+    </>
   );
 }
 

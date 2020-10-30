@@ -6,13 +6,12 @@ import './dashboard.css';
 
 const Dashboard=()=> {
   return (
-    <div>
+    <div >
       <div className="dashboard">
         <h2>Dashboard</h2>
       </div>
-      
       <Categories />
-      <Sidebar />
+      <Sidebar />  
     </div>
   )
 }

@@ -4,8 +4,10 @@ import './sidebar.css';
 
 const Sidebar=()=> {
   return (
-    <div className="sidebar sidebarWrapper">
-      <h2>Sidebar</h2>
+    <div className="sidebar">
+      <h2 className="sidebar__title">Popular News</h2>
+      <hr className="sidebar__line"></hr>
+      
     </div>
   )
 }
