@@ -1,7 +1,7 @@
 .sidebar {
   left: 10%; 
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 236px; /* Set the width of the sidebar */
+
   position: static;
   z-index: 1; /* Stay on top */
   background-color: #fff; 
@@ -11,7 +11,6 @@
   padding-bottom: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.11);
-
 }
 
 .sidebar__line {

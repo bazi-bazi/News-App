@@ -73,3 +73,17 @@ p
     { 
     font-size: 1.2em;     
 }
+
+/* App styles */
+
+.footer {
+    box-sizing:border-box;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #263843;
+  }
+
+  .app {
+      position: relative;
+  }

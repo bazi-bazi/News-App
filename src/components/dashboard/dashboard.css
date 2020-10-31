@@ -1,5 +1,28 @@
 .dashboard {
+  width: 960px;
   margin-left: 35rem;
   height: 100%;
   padding: 0px 10px;
+}
+.main {
+  box-sizing: border-box;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.left {
+  position:absolute;
+  top:0;
+  left:0;
+  width:365px;
+
+}
+
+.right {
+  position:absolute;
+  top:0;
+  right:0;
+  width:365px;
+
 }
