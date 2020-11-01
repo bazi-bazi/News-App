@@ -2,21 +2,29 @@ import React from 'react';
 import './App.css';
 import Navigation from './components/navigation';
 import Slider from './components/slider';
-import Dashboard from './components/dashboard';
 import Footer from './components/footer';
+import Dashboard from './components/dashboard';
+import Signin from './components/profile/Signin';
+import Signup from './components/profile/Signup';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="app">
-    <div className="App wrapper">
-      <Navigation />
-      <Slider />
-      <Dashboard />   
-    </div>
-    <div className="footer">
-      <Footer />
-    </div>
-    </div>
+    <Router>
+      <div className="app">
+        <div className="App wrapper">
+          <Navigation />
+          <Switch>
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/signin" component={Signin} />
+            <Route path="/signup" component={Signup} />
+          </Switch>
+        </div>
+       <div className="footer">
+         <Footer />
+       </div>
+      </div>
+    </Router>
   );
 }
 
