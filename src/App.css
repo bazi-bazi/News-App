@@ -3,10 +3,9 @@
 /* default styles */
 html {
   box-sizing: border-box;
-  font: 62.5%/1.5  'Raleway', Tahoma, Verdana, sans-serif; 
   height: 100vh;
   color: #263843; 
-  background-color: #F9F9F9; 
+  background-color: #F9F9F9;
 }
 
 *,
@@ -36,6 +35,7 @@ html {
 .wrapper 
 {  
 width:80%;
+height: 100%;
 text-align:left;   
 margin-left:auto;  
 margin-right:auto;  
@@ -86,4 +86,5 @@ p
 
   .app {
       position: relative;
+      background-color:#F9F9F9;
   }

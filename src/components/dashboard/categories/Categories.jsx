@@ -15,7 +15,10 @@ const Categories=()=> {
           <li className="categories__item ative"><i className="far fa-circle"></i><span >Communication</span></li>
           <li className="categories__item ative"><i className="far fa-circle"></i><span >Communication</span></li>
         </nav>
-
+      </div>
+      <div className="categories__posts">
+      <h2 className="categories__title">New Posts</h2>
+      <hr className="categories__line"></hr>
       </div>
     </div>
   )

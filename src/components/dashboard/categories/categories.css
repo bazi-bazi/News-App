@@ -1,7 +1,7 @@
 .categories {
   left: 10%; 
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 236px; /* Set the width of the sidebar */
+  width: 300px; /* Set the width of the sidebar */
   position: static;
   z-index: 1; /* Stay on top */
   background-color: #fff; 
@@ -17,7 +17,7 @@
 .categories__title {
   text-transform: capitalize;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: left;
   color: #263843;
   padding-bottom: 1rem;
@@ -35,7 +35,7 @@
 .categories__list {
 padding-top: 1rem;
 font-weight: 500;
-font-size: 1.6rem;
+font-size: 1rem;
 line-height: 41px;
 text-align: left;
 color: #768791;

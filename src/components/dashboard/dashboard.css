@@ -1,13 +1,17 @@
 .dashboard {
-  width: 960px;
-  margin-left: 35rem;
-  height: 100%;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  margin-left: 30rem;
+  min-height: 3600px;
   padding: 0px 10px;
+  overflow: auto;
+
 }
 .main {
   box-sizing: border-box;
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -15,14 +19,4 @@
   position:absolute;
   top:0;
   left:0;
-  width:365px;
-
-}
-
-.right {
-  position:absolute;
-  top:0;
-  right:0;
-  width:365px;
-
 }

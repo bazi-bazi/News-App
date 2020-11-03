@@ -1,9 +1,9 @@
 import React from 'react';
 import Categories from './categories/Categories';
-import Sidebar from './sidebar/Sidebar';
 import './dashboard.css';
 import Footer from '../footer/Footer';
 import Slider from '../slider';
+import Post from './post/Post';
 
 const Dashboard=()=> {
   return (
@@ -11,16 +11,10 @@ const Dashboard=()=> {
     <Slider /> 
     <div className="main">
       <div className="dashboard">
-        <h2>Dashboard</h2>
+        <Post />
       </div>
       <div className="left">
       <Categories />
-      </div>
-      <div className="right">
-      <Sidebar />
-      </div>  
-      <div className="footer">
-      <Footer /> 
       </div>
     </div>
     </div>
