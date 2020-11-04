@@ -67,10 +67,9 @@ color: #768791;
 
 .post__form-style {
   width: 80%;
-  border: 1px solid #707070;
-  border-radius: 5px;
 }
 
 .post__form__btn {
-  display: block;
+  width: 100%;
+  padding-top: 20px;
 }

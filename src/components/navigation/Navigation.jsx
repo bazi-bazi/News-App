@@ -18,7 +18,7 @@ const Navigation=()=> {
            <Link to="/signup">Sign Up</Link>
            </li>
            <li className="navbar__item">
-           <Link to="/signin">Sign In</Link>
+           <Link to="/login">Log In</Link>
            </li>
         </nav>   
       </header>

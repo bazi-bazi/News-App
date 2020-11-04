@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import Dashboard from './components/dashboard';
 import Signin from './components/profile/Signin';
 import Signup from './components/profile/Signup';
+import ForgotPassword from './components/profile/ForgotPassword';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -15,8 +16,9 @@ function App() {
           <Navigation />
           <Switch>
             <Route exact path="/" component={Dashboard} />
-            <Route path="/signin" component={Signin} />
+            <Route path="/login" component={Signin} />
             <Route path="/signup" component={Signup} />
+            <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </div>
        <div className="footer">

@@ -1,7 +1,7 @@
 import React from 'react';
 import './post.css';
 import image from '../../../img/post.png';
-import {  Button } from "react-bootstrap";
+import {  Button, Form } from "react-bootstrap";
 
 
 const Post = () => {
@@ -17,13 +17,12 @@ const Post = () => {
         <p className="post__comment__text">Leaved Comment</p>
       </div>
       <div className="post__form">
-        <form >
-          <textarea className="post__form-style" id="w3review" name="w3review" rows="4" cols="50" placeholder="Leave Comment">
-          </textarea>
-          <Button  className="w-50" variant="outline-primary" type="submit" value="Submit">
+        <Form.Group>
+        <Form.Control size="lg" type="text" placeholder="Type text" />
+          <Button  className="post__form__btn mt-2" variant="outline-primary" type="submit" value="Submit">
               Add Comment
             </Button>
-        </form>
+        </Form.Group>
       </div>
     </div>
   )

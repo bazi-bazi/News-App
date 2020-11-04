@@ -1,15 +1,15 @@
-// export const signIn = () => {
-//   return (dispatch, getState, { getFirebase }) => {
-//     const firebase = getFirebase();
+export const signIn = (credentials) => {
+  return (dispatch, getState, {getFirebase}) => {
+    const firebase = getFirebase();
+    
+    firebase.auth().signInWithEmailAndPassword(
+      credentials.email,
+      credentials.password
+    ).then(() => {
+      dispatch({ type: 'LOGIN_SUCCESS' });
+    }).catch((err) => {
+      dispatch({ type: 'LOGIN_ERROR', err });
+    });
 
-//     firebase
-//       .auth()
-//       // .signInWithEmailAndPassword(creds.email, creds.password)
-//       .then(() => {
-//         dispatch({ type: "SIGN_IN" });
-//       })
-//       .catch(err => {
-//         dispatch({ type: "SIGN_IN_ERR" }, err);
-//       });
-//   };
-// }
+  }
+}

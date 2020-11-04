@@ -1,30 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './profile.css';
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
+import { signIn } from '../../redux/actions/authActions';
+import { connect } from 'react-redux';
 
-export default function Signin() {
+ class Signin extends Component {
+  state = {
+    email: "",
+    password: "",
+  };
+
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.signIn(this.state);
+  };
+
+
+  render() {
+    const { authError } = this.props;
   return (
     <div className="profile">
       <React.Fragment>
           <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
-          <Form>
+          {authError ? <Alert variant="danger">{authError}</Alert> : null}
+          <Form onSubmit={this.handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email"  required />
+              <Form.Control type="email" onChange={this.handleChange} id="email" required />
             </Form.Group>
             <Form.Group id="password">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password"  required />
+              <Form.Control onChange={this.handleChange} type="password" id="password" required />
             </Form.Group>
             <Button  className="w-100" type="submit">
               Log In
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            Forgot Password?
+            <Link to="/forgot-password">Forgot Password?</Link>    
           </div>
         </Card.Body>
       </Card>
@@ -36,3 +60,19 @@ export default function Signin() {
     </div>
   )
 }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    authError: state.auth.authError
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signIn: (credentials) => dispatch(signIn(credentials))
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);
