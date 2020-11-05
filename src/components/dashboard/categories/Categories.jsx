@@ -1,8 +1,12 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './categories.css';
+import { connect } from 'react-redux';
+import { signOut } from '../../../redux/actions/authActions';
+import { Button } from 'react-bootstrap';
 
 
-const Categories=()=> {
+const Categories=(props)=> {
   return (
     <div className="categories">
       <h2 className="categories__title">categories</h2>
@@ -19,9 +23,16 @@ const Categories=()=> {
       <div className="categories__posts">
       <h2 className="categories__title">New Posts</h2>
       <hr className="categories__line"></hr>
+      <Button><a onClick={props.signOut}>Sign Out</a></Button>
       </div>
     </div>
   )
 }
 
-export default Categories;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signOut: () => dispatch(signOut())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Categories);
