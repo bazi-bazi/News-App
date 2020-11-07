@@ -1,12 +1,16 @@
 import React from 'react';
 import "./navigation.css";
 import logo from "../../img/logo.png";
-import {
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+import { signOut } from '../../redux/actions/authActions';
+import { Button } from 'react-bootstrap';
 
 
-const Navigation=()=> {
+const Navigation=(props)=> {
+  const { auth } = props;
+
+
   return (
       <header className="navbar navWrapper">
         <img src={logo} alt="logo" />
@@ -15,10 +19,11 @@ const Navigation=()=> {
            <Link to="/">Home</Link>
            </li>
            <li className="navbar__item">
-           <Link to="/signup">Sign Up</Link>
+            {auth.uid ? <Link to="/signup"></Link> : <Link to="/signup">Sign Up</Link>}         
            </li>
            <li className="navbar__item">
-           <Link to="/login">Log In</Link>
+           {auth.uid ? <Link to="/login"></Link> : <Link to="/login">Log In</Link>}  
+           
            </li>
         </nav>   
       </header>
@@ -26,6 +31,12 @@ const Navigation=()=> {
   )
 }
 
-export default Navigation;
+const mapDispatchToProps =(state)=> {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
+export default connect(mapDispatchToProps)(Navigation);
 
 
