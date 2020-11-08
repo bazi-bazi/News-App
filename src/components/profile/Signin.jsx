@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './profile.css';
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect  } from "react-router-dom";
 import { signIn } from '../../redux/actions/authActions';
 import { connect } from 'react-redux';
+
 
  class Signin extends Component {
   state = {
@@ -23,11 +24,13 @@ import { connect } from 'react-redux';
     e.preventDefault();
     this.props.signIn(this.state);
   };
-
+  
 
   render() {
-    const { authError } = this.props;
+    const { authError, logedIn } = this.props;
   return (
+    <React.Fragment>
+      {logedIn ? <Redirect to="/" /> : 
     <div className="profile">
       <React.Fragment>
           <Card>
@@ -58,13 +61,16 @@ import { connect } from 'react-redux';
 
       </React.Fragment>
     </div>
+  }
+    </React.Fragment>
   )
 }
 }
 
 const mapStateToProps = (state) => {
   return {
-    authError: state.auth.authError
+    authError: state.auth.authError,
+    logedIn: state.auth.logedIn
   }
 }
 

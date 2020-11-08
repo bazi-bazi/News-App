@@ -1,5 +1,6 @@
 const initialState = {
-  authError: null
+  authError: null,
+  logedIn: true
 }
 
 const authReducer = (state = initialState, action) => {
@@ -13,7 +14,8 @@ const authReducer = (state = initialState, action) => {
       case "LOGIN_SUCCESS":
           return {
               ...state,
-              authError: null
+              authError: null,
+              logedIn: false
           }
       case "SIGNOUT_SUCCESS":
 
@@ -22,7 +24,8 @@ const authReducer = (state = initialState, action) => {
 
           return {
               ...state,
-              authError: null
+              authError: null,
+              logedIn: false
           }   
       case "SIGNUP_ERROR": 
       return {

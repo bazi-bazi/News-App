@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import './categories.css';
 import { connect } from 'react-redux';
@@ -6,7 +6,12 @@ import { signOut } from '../../../redux/actions/authActions';
 import { Button } from 'react-bootstrap';
 
 
-const Categories=(props)=> {
+class Categories extends Component {
+
+  
+  render() { 
+    
+    const {profile}  = this.props;
   return (
     <div className="categories">
       <h2 className="categories__title">categories</h2>
@@ -21,12 +26,20 @@ const Categories=(props)=> {
         </nav>
       </div>
       <div className="categories__posts">
-      <h2 className="categories__title">New Posts</h2>
+      <h2 className="categories__title">Profile</h2>
       <hr className="categories__line"></hr>
-      <Button><a onClick={props.signOut}>Sign Out</a></Button>
+       <div className="categories__title">{this.props.profile}</div>
+      <Button><a onClick={this.props.signOut}>Sign Out</a></Button> 
       </div>
     </div>
   )
+}
+}
+
+const mapStateToProps = (state) => {
+  return{
+    profile: state.firebase.profile.name
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -35,4 +48,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Categories);
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);

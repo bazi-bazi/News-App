@@ -4,6 +4,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { connect } from 'react-redux';
 import { signUp } from '../../redux/actions/authActions';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class SignUp extends Component {
     state = {
@@ -27,9 +28,10 @@ class SignUp extends Component {
 
 
   render() {
-
+    const { logedIn } = this.props;
   return (
     <div className="profile">
+      {logedIn ? <Redirect to="/" /> : 
       <React.Fragment>
       <Card>
           <Card.Body>
@@ -53,11 +55,12 @@ class SignUp extends Component {
           </Card.Body>
           </Card>
           <div className="w-100 text-center mt-2">
+            {logedIn ? "login" : "logout"}
               Already have an account?
           </div>
 
       </React.Fragment>
-   
+   }
     </div>
   )
 }
@@ -65,7 +68,8 @@ class SignUp extends Component {
 
 const mapStateToProps =(state)=> {
     return {
-      auth: state.firebase.auth
+      auth: state.firebase.auth,
+      logedIn: state.auth.logedIn
     }
   }
   
