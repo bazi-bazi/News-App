@@ -4,6 +4,8 @@ import image from '../../../img/post.png';
 import {  Button, Form } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
+import CommentList from '../commentlist';
+import AddComment from '../addcomment';
 
 
 class Post extends Component {
@@ -22,12 +24,8 @@ class Post extends Component {
         <p className="post__comment__text">{ auth.uid ? 'Leaved Comment' : 'Register to leave comment' }</p>
       </div>
       { auth.uid ? <div className="post__form">
-        <Form.Group>
-        <Form.Control size="lg" type="text" placeholder="Type text" />
-          <Button  className="post__form__btn mt-2" variant="outline-primary" type="submit" value="Submit">
-              Add Comment
-            </Button>
-        </Form.Group>
+        <CommentList />
+        <AddComment />
       </div> : <Link to="/login">Log in</Link>}
       
     </div>

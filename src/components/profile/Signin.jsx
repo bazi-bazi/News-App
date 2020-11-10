@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './profile.css';
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link, Redirect  } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { signIn } from '../../redux/actions/authActions';
 import { connect } from 'react-redux';
 
@@ -30,7 +30,6 @@ import { connect } from 'react-redux';
     const { authError, logedIn } = this.props;
   return (
     <React.Fragment>
-      {logedIn ? <Redirect to="/" /> : 
     <div className="profile">
       <React.Fragment>
           <Card>
@@ -56,12 +55,11 @@ import { connect } from 'react-redux';
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Need an account?
+        Need an account? <Link to="signup">register</Link>
       </div>
 
       </React.Fragment>
     </div>
-  }
     </React.Fragment>
   )
 }

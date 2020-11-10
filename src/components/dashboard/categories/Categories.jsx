@@ -4,6 +4,7 @@ import './categories.css';
 import { connect } from 'react-redux';
 import { signOut } from '../../../redux/actions/authActions';
 import { Button } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 
 class Categories extends Component {
@@ -11,7 +12,7 @@ class Categories extends Component {
   
   render() { 
     
-    const {profile}  = this.props;
+  const {profile, logedIn}  = this.props;
   return (
     <div className="categories">
       <h2 className="categories__title">categories</h2>
@@ -28,8 +29,9 @@ class Categories extends Component {
       <div className="categories__posts">
       <h2 className="categories__title">Profile</h2>
       <hr className="categories__line"></hr>
-       <div className="categories__title">{this.props.profile}</div>
-      <Button><a onClick={this.props.signOut}>Sign Out</a></Button> 
+       <div className="categories__title">{profile}</div>
+       {logedIn ? <Button> <a onClick={this.props.signOut}>Log Out</a></Button> : <Link to="/login"><Button>Login</Button> </Link> }
+       
       </div>
     </div>
   )
@@ -38,7 +40,8 @@ class Categories extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    profile: state.firebase.profile.name
+    profile: state.firebase.profile.name,
+    logedIn: state.auth.logedIn
   }
 }
 

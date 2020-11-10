@@ -1,7 +1,6 @@
 import React from 'react';
 import Categories from './categories/Categories';
 import './dashboard.css';
-import Footer from '../footer/Footer';
 import Slider from '../slider';
 import Post from './post/Post';
 
