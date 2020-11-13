@@ -1,3 +1,4 @@
+  
 const initState = {
   comments: [
    
@@ -6,11 +7,9 @@ const initState = {
 
 const commentsReducer = (state = initState, action) => {
   switch (action.type) {
-    case "CREATE_COMMENT":
-      console.log("create project", action.project);
+    case "CREATE_COMMENTS":   
       return state;
-      case "CREATE_COMMENT_ERROR":
-        console.log("create comment error", action.err);
+      case "CREATE_COMMENTS_ERROR":
         return state;
         default:
           return state; 

@@ -15,20 +15,7 @@ import { createFirestoreInstance, reduxFirestore, getFirestore } from 'redux-fir
 import { ReactReduxFirebaseProvider, getFirebase, isLoaded } from 'react-redux-firebase'
 import 'firebase/firestore';
 
-/// Firebase config
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyBYxODoEH_hhq0fVc7AAqk1sj6ou04jJ4A",
-//   authDomain: "news-app-5970e.firebaseapp.com",
-//   databaseURL: "https://news-app-5970e.firebaseio.com",
-//   projectId: "news-app-5970e",
-//   storageBucket: "news-app-5970e.appspot.com",
-//   messagingSenderId: "389602304910",
-//   appId: "1:389602304910:web:15da7bdb84ef0ed3807adf"
-// };
-
-// firebase.initializeApp(firebaseConfig);
-// firebase.firestore();
 
 const rrfConfig = { 
   userProfile: 'users',
@@ -69,17 +56,16 @@ function AuthIsLoaded({ children }) {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
+
     <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rffProps}>    
+      <ReactReduxFirebaseProvider {...rffProps}>
         <BrowserRouter>
           <AuthIsLoaded>
              <App />
           </AuthIsLoaded>
         </BrowserRouter>     
       </ReactReduxFirebaseProvider>
-    </Provider>
-  </React.StrictMode>,
+    </Provider>,
   document.getElementById("root")
 );
 

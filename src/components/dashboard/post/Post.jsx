@@ -4,14 +4,16 @@ import image from '../../../img/post.png';
 import {  Button, Form } from "react-bootstrap";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom";
-import CommentList from '../commentlist';
+import CommentList from './commentlist';
 import AddComment from '../addcomment';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux'
 
 
 class Post extends Component {
 
   render() {
-    const { auth } = this.props;
+    const { auth, comments } = this.props;
   return (
     <div className="post">
       <img className="post__image" src={image} alt="post" />
@@ -24,7 +26,7 @@ class Post extends Component {
         <p className="post__comment__text">{ auth.uid ? 'Leaved Comment' : 'Register to leave comment' }</p>
       </div>
       { auth.uid ? <div className="post__form">
-        <CommentList />
+        <CommentList comments={comments} />
         <AddComment />
       </div> : <Link to="/login">Log in</Link>}
       
@@ -35,8 +37,14 @@ class Post extends Component {
 
 const mapStateToProps =(state)=> {
   return {
+    comments: state.firestore.ordered.comments || state.comment.comments,
     auth: state.firebase.auth
   }
 }
 
-export default connect(mapStateToProps)(Post);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect([
+    { collection: 'comments', orderBy: ["createdAt", "desc"] }
+  ])
+)(Post)

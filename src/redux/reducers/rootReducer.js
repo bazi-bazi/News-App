@@ -5,10 +5,11 @@ import authReducer from "./authReducer";
 import commentsReducer from './commentsReducer';
 
 const rootReducer = combineReducers({
-    firebase: firebaseReducer,
-    firestore: firestoreReducer,
     auth: authReducer,
-    comments: commentsReducer
+    comment: commentsReducer,
+    firebase: firebaseReducer,
+    firestore: firestoreReducer
+    
 });
 
 // import authReducer from "./authReducer";
