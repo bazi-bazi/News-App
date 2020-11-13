@@ -5,6 +5,7 @@ export const createComments = (comment) => {
     const authorId = getState().firebase.auth.uid;
     firestore.collection("comments").add({
       ...comment,
+      authorName: profile.name,
       authorId: authorId,
       createdAt: new Date()
     }).then(() => {
