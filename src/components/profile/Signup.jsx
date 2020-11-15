@@ -4,7 +4,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { connect } from 'react-redux';
 import { signUp } from '../../redux/actions/authActions';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class SignUp extends Component {
     state = {
@@ -27,8 +27,9 @@ class SignUp extends Component {
 
 
 
-  render() {
-    const { logedIn } = this.props;
+  render() { 
+    const { logedIn, auth } = this.props;
+    if (auth.uid) return <Redirect to="/" /> 
   return (
     <div className="profile">
 

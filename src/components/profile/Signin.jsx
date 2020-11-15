@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './profile.css';
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { signIn } from '../../redux/actions/authActions';
 import { connect } from 'react-redux';
 
@@ -27,7 +27,8 @@ import { connect } from 'react-redux';
   
 
   render() {
-    const { authError, logedIn } = this.props;
+    const { authError, logedIn, auth } = this.props;
+    if (auth.uid) return <Redirect to="/" /> 
   return (
     <React.Fragment>
     <div className="profile">
@@ -67,6 +68,7 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
   return {
+    auth: state.firebase.auth,
     authError: state.auth.authError,
     logedIn: state.auth.logedIn
   }
