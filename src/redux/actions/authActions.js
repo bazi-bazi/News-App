@@ -43,3 +43,19 @@ export const signUp = (newUser) => {
     })
   }
 }
+
+
+export const forgotPassword = (credentials) => {
+  return (dispatch, getState, {getFirebase}) => {
+    const firebase = getFirebase();
+    
+    firebase.auth().sendPasswordResetEmail(
+      credentials.email
+    ).then(() => {
+      dispatch({ type: 'RESET_PASSWORD_SUCCESS' });
+    }).catch((err) => {
+      dispatch({ type: 'RESET_PASSWORD_ERROR', err });
+    });
+
+  }
+}

@@ -1,6 +1,7 @@
 const initialState = {
   authError: null,
-  logedIn: true
+  logedIn: true,
+  resetError: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -31,6 +32,16 @@ const authReducer = (state = initialState, action) => {
       return {
           ...state,
           authError: action.err.message
+      } 
+      case "RESET_PASSWORD_SUCCESS": 
+      return {
+          ...state,
+          resetError: "Check your inbox for further instructions"
+      } 
+      case "RESET_PASSWORD_ERROR": 
+      return {
+          ...state,
+          resetError: "Password reset error"
       } 
       default:
           return state;    
