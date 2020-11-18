@@ -1,6 +1,6 @@
 const initialState = {
   authError: null,
-  logedIn: true,
+  logedIn: false,
   resetError: null
 }
 

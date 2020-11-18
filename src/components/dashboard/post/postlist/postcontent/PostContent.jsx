@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import image from '../../../../../img/post.png';
 import "../../post.css";
+
 
 
 const PostContent=({image, title, date, description, readmore})=> {

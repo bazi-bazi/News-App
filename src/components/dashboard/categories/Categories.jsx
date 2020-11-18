@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import './categories.css';
 import { connect } from 'react-redux';
 import { signOut } from '../../../redux/actions/authActions';
 import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import ChatList from './chatlist/ChatList';
+import AddComment from '../addcomment';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 
 class Categories extends Component {
@@ -12,20 +15,9 @@ class Categories extends Component {
   
   render() { 
     
-  const {profile, logedIn}  = this.props;
+  const {profile, logedIn, comments, auth}  = this.props;
   return (
-    <div className="categories">
-      <h2 className="categories__title">categories</h2>
-      <hr className="categories__line"></hr>
-      <div className="categories__list">
-        <nav>
-          <li className="categories__item ative"><i class="fas fa-circle"></i><span className="active">Communication</span></li>
-          <li className="categories__item ative"><i className="far fa-circle"></i><span>Communication</span></li>
-          <li className="categories__item ative"><i className="far fa-circle"></i><span >Communication</span></li>
-          <li className="categories__item ative"><i className="far fa-circle"></i><span >Communication</span></li>
-          <li className="categories__item ative"><i className="far fa-circle"></i><span >Communication</span></li>
-        </nav>
-      </div>
+    <div className="categories"> 
       <div className="categories__posts">
       <h2 className="categories__title">Profile</h2>
       <hr className="categories__line"></hr>
@@ -33,6 +25,11 @@ class Categories extends Component {
        {logedIn ? <Button> <a onClick={this.props.signOut}>Log Out</a></Button> : <Link to="/login"><Button>Login</Button> </Link> }
        
       </div>
+      <h2 className="categories__title">Personal Massages</h2>
+      <hr className="categories__line"></hr>
+      <ChatList comments={comments} />
+      <p className="message__text">{ auth.uid ? 'Leave message' : 'Login to leave a message' }</p>
+      { auth.uid ? <AddComment /> : <Link to="/login">Log in</Link>}
     </div>
   )
 }
@@ -41,7 +38,9 @@ class Categories extends Component {
 const mapStateToProps = (state) => {
   return{
     profile: state.firebase.profile.name,
-    logedIn: state.auth.logedIn
+    logedIn: state.auth.logedIn,
+    comments: state.firestore.ordered.comments || state.comment.comments,
+    auth: state.firebase.auth
   }
 }
 
@@ -51,4 +50,11 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Categories);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  firestoreConnect([
+    { collection: 'comments', orderBy: ["createdAt", "desc"] }
+  ])
+)(Categories)
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Categories);

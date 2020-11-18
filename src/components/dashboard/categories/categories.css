@@ -52,3 +52,10 @@ text-transform: capitalize;
   color: #263843;
 }
 
+.message__text {
+  line-height: 26px;
+  font-weight: 500;
+  font-size: 1rem;
+  color: #768791;
+}
+

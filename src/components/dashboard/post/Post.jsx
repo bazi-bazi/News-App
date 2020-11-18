@@ -23,8 +23,8 @@ class Post extends Component {
         <p className="post__comment__text">{ auth.uid ? 'Leaved Comment' : 'Register to leave comment' }</p>
       </div>
       { auth.uid ? <div className="post__form">
-        <CommentList comments={comments} />
-        <AddComment />
+        {/* <CommentList comments={comments} />
+        <AddComment /> */}
       </div> : <Link to="/login">Log in</Link>}
       
     </div>
@@ -39,9 +39,11 @@ const mapStateToProps =(state)=> {
   }
 }
 
-export default compose(
-  connect(mapStateToProps),
-  firestoreConnect([
-    { collection: 'comments', orderBy: ["createdAt", "desc"] }
-  ])
-)(Post)
+// export default compose(
+//   connect(mapStateToProps),
+//   firestoreConnect([
+//     { collection: 'comments', orderBy: ["createdAt", "desc"] }
+//   ])
+// )(Post)
+
+export default connect(mapStateToProps)(Post);

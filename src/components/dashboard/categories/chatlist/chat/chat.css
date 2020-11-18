@@ -1,0 +1,32 @@
+
+.container {
+  background-color: #007bff;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.time-right {
+  float: right;
+  color: #fff;
+  font-size: 0.75rem;
+}
+
+.chat__author {
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.chat__message {
+  font-size: 1.125rem;
+  color: #fff;
+}
