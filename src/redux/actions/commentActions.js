@@ -16,3 +16,24 @@ export const createComments = (comment) => {
     
   };
 };
+
+export const removeComments = (comment) => {
+  return (dispatch, getState, {getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+    firestore
+      .collection("comments")
+      .doc(comment.id)
+      .delete()
+      .then(() => {
+        dispatch({
+          type: "REMOVE_COMMENT",
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: "REMOVE_COMMENT_ERR",
+          err,
+        });
+      });
+  };
+};

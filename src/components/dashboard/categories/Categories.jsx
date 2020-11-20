@@ -15,7 +15,8 @@ class Categories extends Component {
   
   render() { 
     
-  const {profile, logedIn, comments, auth}  = this.props;
+  const {profile, logedIn, comments, auth, commentsOn}  = this.props;
+
   return (
     <div className="categories"> 
       <div className="categories__posts">
@@ -27,9 +28,9 @@ class Categories extends Component {
       </div>
       <h2 className="categories__title">Personal Massages</h2>
       <hr className="categories__line"></hr>
-      <ChatList comments={comments} />
+      <ChatList comments={comments} author={auth} />
       <p className="message__text">{ auth.uid ? 'Leave message' : 'Login to leave a message' }</p>
-      { auth.uid ? <AddComment /> : <Link to="/login">Log in</Link>}
+      { auth.uid ? <AddComment /> : <Link to="/login">Log in</Link>}       
     </div>
   )
 }
@@ -40,7 +41,8 @@ const mapStateToProps = (state) => {
     profile: state.firebase.profile.name,
     logedIn: state.auth.logedIn,
     comments: state.firestore.ordered.comments || state.comment.comments,
-    auth: state.firebase.auth
+    auth: state.firebase.auth,
+    commentsOn: state.firestore.ordered.comments
   }
 }
 
