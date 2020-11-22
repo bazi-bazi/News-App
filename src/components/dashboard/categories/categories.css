@@ -21,7 +21,7 @@
   text-align: left;
   color: #263843;
   padding-bottom: 1rem;
-  padding-top: 3.4rem;
+  padding-top: 1rem;
 }
 
 .categories__line {
@@ -57,5 +57,9 @@ text-transform: capitalize;
   font-weight: 500;
   font-size: 1rem;
   color: #768791;
+}
+
+.categories__messages {
+  margin-top: 45px;
 }
 

@@ -7,7 +7,7 @@ const PostContent=({image, title, date, description, readmore})=> {
 
 
   return (
-    <div>
+    <div className="post__content">
     <img className="post__image" src={image} alt="post" />
     <h2 className="post__title">{title}</h2>
     <p className="post__date">{date}</p>

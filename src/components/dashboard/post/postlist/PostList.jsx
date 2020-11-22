@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-
+import '../post.css';
 import PostContent from './postcontent';
 
 // API KEY 7b6950dc25f3455da8db1aad6e85e41d
@@ -28,6 +28,7 @@ const PostList=()=> {
   return (
     <div>
       {headline.map((head)=> (
+        <div className="post__list">
       <PostContent
       image={head.urlToImage}
       title={head.title}
@@ -35,6 +36,7 @@ const PostList=()=> {
       description={head.description}
       readmore={head.url}
       />
+      </div>
       ))}
     </div>
   )

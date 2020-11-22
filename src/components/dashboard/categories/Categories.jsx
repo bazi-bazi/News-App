@@ -20,17 +20,18 @@ class Categories extends Component {
   return (
     <div className="categories"> 
       <div className="categories__posts">
-      <h2 className="categories__title">Profile</h2>
+      <h2 className="categories__title">Hello, {profile}</h2>
       <hr className="categories__line"></hr>
-       <div className="categories__title">{profile}</div>
-       {logedIn ? <Button> <a onClick={this.props.signOut}>Log Out</a></Button> : <Link to="/login"><Button>Login</Button> </Link> }
+       {logedIn ? <Button  size="s" block > <a onClick={this.props.signOut}>Log Out</a></Button> : <Link to="/login"><Button size="s" block >Login</Button> </Link> }
        
       </div>
+      <div className="categories__messages">
       <h2 className="categories__title">Personal Massages</h2>
       <hr className="categories__line"></hr>
       <ChatList comments={comments} author={auth} />
       <p className="message__text">{ auth.uid ? 'Leave message' : 'Login to leave a message' }</p>
-      { auth.uid ? <AddComment /> : <Link to="/login">Log in</Link>}       
+      { auth.uid ? <AddComment /> : <Link to="/login">Log in</Link>}
+      </div>      
     </div>
   )
 }
@@ -58,5 +59,3 @@ export default compose(
     { collection: 'comments', orderBy: ["createdAt", "desc"] }
   ])
 )(Categories)
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Categories);
