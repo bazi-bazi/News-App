@@ -6,10 +6,7 @@
 .post__image {
 margin-top: 20px;
 margin-bottom: 50px;
-width: 600.35px;
-height: 340.02px;
-
-
+width: 100%;
 }
 
 .post__title {
@@ -34,6 +31,7 @@ letter-spacing: 0.01em;
 line-height: 26px;
 text-align: center;
 color: #768791;
+padding-bottom: 20px;
 
 }
 
@@ -73,8 +71,10 @@ color: #768791;
 }
 
 .post__content {
-  padding: 10px;
-  margin-bottom: 20px;
+  width: 100%;
+    
+    background: #fff;
+    padding: 10px;
 }
 
 .post__list {
@@ -82,4 +82,21 @@ color: #768791;
   box-shadow: 0px 0px 2px rgba(125, 145, 148, 0.48);
   background-color: #f9f9f9;
   margin-bottom: 30px;
+  width: 100%;
+  max-width: 500px;
+  margin-right: 40px;
+  background: #fff;
+  padding: 10px;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.post__readmore {
+  color: #fff;
+  margin: 20px;
+  padding-top: 40px;
 }

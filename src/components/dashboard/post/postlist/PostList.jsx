@@ -26,7 +26,7 @@ const PostList=()=> {
 
   }
   return (
-    <div>
+    <div className="posts">
       {headline.map((head)=> (
         <div className="post__list">
       <PostContent
