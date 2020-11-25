@@ -19,7 +19,7 @@ const TechList=()=> {
   const [ headline, setHeadline ] = useState([]);
 
   const getData = async () => {
-    const response = await fetch( `http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}` );
+    const response = await fetch( `http://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apiKey}` );
     const data = await response.json();
     setHeadline(data.articles);
     console.log(data.articles);

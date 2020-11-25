@@ -20,10 +20,10 @@ const Slider=({ selectBusiness, selectTech, selectArt, selectArchitect })=> {
           technologies         
         </li>
         <li onClick={ selectArt }>
-          Art     
+          Entertainmant    
         </li>
         <li onClick={ selectArchitect }>
-          Architect    
+          Science   
         </li>
       </nav>
     </div>
