@@ -29,7 +29,7 @@ import { createComments } from '../../../redux/actions/commentActions';
     <Form.Group>
       <Form onSubmit={this.handleSubmit}>
         <Form.Control onChange={this.handleChange} size="lg" type="text" id="content" placeholder="Type text" />
-          <Button  className="post__form__btn mt-2" variant="outline-primary" type="submit" value="Submit">
+          <Button  variant="outline-primary" type="submit" value="Submit" block>
               Add Comment
           </Button>
       </Form>

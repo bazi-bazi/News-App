@@ -71,10 +71,10 @@ padding-bottom: 20px;
 }
 
 .post__content {
-  width: 100%;
-    
-    background: #fff;
-    padding: 10px;
+  width: 100%;  
+  background: #fff;
+  padding: 10px;
+  position: relative;
 }
 
 .post__list {
@@ -96,7 +96,11 @@ padding-bottom: 20px;
 }
 
 .post__readmore {
-  color: #fff;
   margin: 20px;
   padding-top: 40px;
+}
+
+.post__readmore-text {
+  color: #fff;
+
 }

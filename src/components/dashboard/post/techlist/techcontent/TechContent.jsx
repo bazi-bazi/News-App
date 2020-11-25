@@ -4,7 +4,7 @@ import noImage from '../../../../../img/noimage.jpg';
 import { Button } from 'react-bootstrap';
 
 
-const PostContent=({image, title, date, description, readmore})=> {
+const TechContent=({image, title, date, description, readmore})=> {
 
   const withImage = image;
   return (
@@ -23,4 +23,4 @@ const PostContent=({image, title, date, description, readmore})=> {
   )
 }
 
-export default PostContent;
+export default TechContent;
