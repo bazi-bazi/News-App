@@ -8,12 +8,11 @@ import ArchiList from './archilist';
 
 
 
-
 class Post extends Component {
 
   render() {
-    const { businessOn, techOn, artOn, archiOn } = this.props;
-  return (
+    const { businessOn, techOn, artOn, archiOn, loadingBar } = this.props;
+  return (  
     <div className="post">
       {businessOn ? <PostList /> : null}
       {techOn ? <TechList /> : null}
@@ -31,7 +30,8 @@ const mapStateToProps =(state)=> {
     businessOn: state.news.businessOn,
     techOn: state.news.techOn,
     artOn: state.news.artOn,
-    archiOn: state.news.archiOn
+    archiOn: state.news.archiOn,
+    loadingBar: state.loadingBar
   }
 }
 

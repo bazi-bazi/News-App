@@ -7,7 +7,8 @@ import Signin from './components/profile/Signin';
 import Signup from './components/profile/Signup';
 import ForgotPassword from './components/profile/ForgotPassword';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import PostList from './components/dashboard/post/postlist';
+
+
 
 function App() {
   return (
@@ -20,7 +21,6 @@ function App() {
             <Route path="/login" component={Signin} />
             <Route path="/signup" component={Signup} />
             <Route path="/forgot-password" component={ForgotPassword} />
-            {/* <Route path="/business" component={PostList} /> */}
           </Switch>
         </div>
        <div className="footer">

@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 const ArtContent=({image, title, date, description, readmore})=> {
 
   const withImage = image;
+ 
   return (
     <div>
     <div className="post__content">

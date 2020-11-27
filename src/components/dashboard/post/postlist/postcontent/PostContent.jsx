@@ -9,6 +9,7 @@ const PostContent=({image, title, date, description, readmore})=> {
   const withImage = image;
   return (
     <div>
+      
     <div className="post__content">
     <img className="post__image" src={image == null ? noImage : withImage} alt="post" />
     <h2 className="post__title">{title}</h2>

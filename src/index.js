@@ -26,12 +26,6 @@ const rrfConfig = {
 
 
 
-/// Store config
-
-// const initialState = {};
-// const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(logger, thunk.withExtraArgument({getFirebase, getFirestore})))
-// );
-
 const store = createStore(rootReducer, 
   compose(
     composeWithDevTools(applyMiddleware(logger, thunk.withExtraArgument({getFirebase, getFirestore}))),

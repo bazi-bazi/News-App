@@ -2,9 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import '../post.css';
 import PostContent from './postcontent';
-
-// API KEY 7b6950dc25f3455da8db1aad6e85e41d
-
+import { Spinner } from 'react-bootstrap';
 
 const PostList=()=> {
 
@@ -15,20 +13,22 @@ const PostList=()=> {
   }, []);
 
 
-
   const [ headline, setHeadline ] = useState([]);
+  const [ loading, setLoading ] = useState(false);
 
   const getData = async () => {
     const response = await fetch( `http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${apiKey}` );
     const data = await response.json();
     setHeadline(data.articles);
     console.log(data.articles);
-
+    setLoading(true);
   }
   return (
+    <div>
+      {loading ? 
     <div className="posts">
       {headline.map((head)=> (
-        <div className="post__list">
+        <div className="post__list">     
       <PostContent
       image={head.urlToImage}
       title={head.title}
@@ -38,6 +38,8 @@ const PostList=()=> {
       />
       </div>
       ))}
+    </div>
+    : <Spinner animation="grow" />}
     </div>
   )
 }
