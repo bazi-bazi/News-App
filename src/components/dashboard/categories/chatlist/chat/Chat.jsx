@@ -4,6 +4,7 @@ import './chat.css';
 import { connect } from 'react-redux';
 import { removeComments } from '../../../../../redux/actions/commentActions';
 import { Button } from 'react-bootstrap';
+import { TrashFill } from 'react-bootstrap-icons';
 
 const Chat = ({comment, auth, removeComments}) => {
 
@@ -17,8 +18,9 @@ const Chat = ({comment, auth, removeComments}) => {
       <p className="chat__author">Author name: {comment.authorName}</p>
       <p className="chat__message">{comment.content}</p>
       <span className="time-right">{comment.createdAt && moment(comment.createdAt.toDate()).calendar()}</span>
-      
-      {auth.uid === comment.authorId ? <Button variant="danger" size="sm" onClick={() => handleRemove(comment)}>delete</Button> : "donot"}
+      <div className="chat__trash">
+      {auth.uid === comment.authorId ? <Button variant="link" size="sm" onClick={() => handleRemove(comment)}><TrashFill color="white" size={20} /></Button> : null}
+      </div>
       </div>
     </div>
 

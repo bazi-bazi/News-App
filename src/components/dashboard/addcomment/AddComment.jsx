@@ -1,6 +1,6 @@
   
 import React, { Component } from 'react';
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { connect } from 'react-redux';
 import { createComments } from '../../../redux/actions/commentActions';
@@ -21,6 +21,7 @@ import { createComments } from '../../../redux/actions/commentActions';
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.createComments(this.state);
+    e.target.reset();
   };
 
   render() {
@@ -30,7 +31,7 @@ import { createComments } from '../../../redux/actions/commentActions';
       <Form onSubmit={this.handleSubmit}>
         <Form.Control onChange={this.handleChange} size="lg" type="text" id="content" placeholder="Type text" />
           <Button  variant="outline-primary" type="submit" value="Submit" block>
-              Add Comment
+              Add Message
           </Button>
       </Form>
     </Form.Group>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import "../../post.css";
 import noImage from '../../../../../img/noimage.jpg';
 import { Button } from 'react-bootstrap';
@@ -18,7 +18,7 @@ const ArtContent=({image, title, date, description, readmore})=> {
       
     </div>
     <div className="post__readmore">
-    <Button variant="primary"><a className="post__readmore-text" href={readmore} target="_blank">Read More</a></Button>
+    <Button variant="primary"><a className="post__readmore-text" href={readmore} target="_blank" rel="noreferrer">Read More</a></Button>
     </div>
     </div>
   )

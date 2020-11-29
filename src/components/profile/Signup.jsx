@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './profile.css';
-import { Form, Button, Card, Alert } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { connect } from 'react-redux';
 import { signUp } from '../../redux/actions/authActions';

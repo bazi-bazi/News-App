@@ -27,7 +27,7 @@ import { connect } from 'react-redux';
   
 
   render() {
-    const { authError, logedIn, auth } = this.props;
+    const { authError,  auth } = this.props;
     if (auth.uid) return <Redirect to="/" /> 
   return (
     <React.Fragment>

@@ -11,7 +11,7 @@ import ArchiList from './archilist';
 class Post extends Component {
 
   render() {
-    const { businessOn, techOn, artOn, archiOn, loadingBar } = this.props;
+    const { businessOn, techOn, artOn, archiOn} = this.props;
   return (  
     <div className="post">
       {businessOn ? <PostList /> : null}

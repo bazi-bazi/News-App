@@ -22,14 +22,14 @@ class ForgotPassword extends Component {
   };
 
   render() {
-    const { resetError } = this.props;
+    const { resetError, resetOn } = this.props;
 
   return (
     <div className="profile">
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Password Reset</h2>
-          {resetError ? <Alert variant="success">{resetError}</Alert> : <Alert variant="danger">{resetError}</Alert>}
+          {resetError ? <Alert variant="danger">{resetError}</Alert> : <Alert variant="success">{resetOn}</Alert>}
           <Form onSubmit={this.handleSubmit}>
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
@@ -45,7 +45,7 @@ class ForgotPassword extends Component {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/signup">Sign Up</Link>
+        Need an account? <Link to="/signup">Register</Link>
       </div>
     </div>
   )
@@ -56,6 +56,7 @@ const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
     resetError: state.auth.resetError,
+    resetOn: state.auth.resetOn,
     logedIn: state.auth.logedIn
   }
 }

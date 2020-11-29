@@ -15,14 +15,15 @@ class Categories extends Component {
   
   render() { 
     
-  const {profile, logedIn, comments, auth, commentsOn}  = this.props;
+  const {profile, logedIn, comments, auth }  = this.props;
 
   return (
     <div className="categories"> 
       <div className="categories__posts">
-      <h2 className="categories__title">Hello, {profile}</h2>
+      <h2 className="categories__title"><b>Hello,</b> {profile}</h2>
       <hr className="categories__line"></hr>
-       {logedIn ? <Button  size="s" block > <a onClick={this.props.signOut}>Log Out</a></Button> : <Link to="/login"><Button size="s" block >Login</Button> </Link> }
+       {logedIn ? <Button  size="s" block onClick={this.props.signOut} >Log Out</Button> : <Button href="/login" size="s" block >Login</Button>}
+      
        
       </div>
       <div className="categories__messages">

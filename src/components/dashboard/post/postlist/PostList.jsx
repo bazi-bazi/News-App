@@ -28,7 +28,7 @@ const PostList=()=> {
       {loading ? 
     <div className="posts">
       {headline.map((head)=> (
-        <div className="post__list">     
+        <div className="post__list" key={head.title}>     
       <PostContent
       image={head.urlToImage}
       title={head.title}

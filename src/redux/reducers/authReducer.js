@@ -1,7 +1,8 @@
 const initialState = {
   authError: null,
-  logedIn: true,
-  resetError: null
+  logedIn: false,
+  resetError: undefined,
+  resetOn: undefined
 }
 
 const authReducer = (state = initialState, action) => {
@@ -16,17 +17,20 @@ const authReducer = (state = initialState, action) => {
           return {
               ...state,
               authError: null,
-              logedIn: false
+              logedIn: true
           }
       case "SIGNOUT_SUCCESS":
 
-          return state; 
+        return {
+            ...state,
+            logedIn: false
+        }
       case "SIGNUP_SUCCESS":
 
           return {
               ...state,
               authError: null,
-              logedIn: false
+              logedIn: true
           }   
       case "SIGNUP_ERROR": 
       return {
@@ -36,7 +40,7 @@ const authReducer = (state = initialState, action) => {
       case "RESET_PASSWORD_SUCCESS": 
       return {
           ...state,
-          resetError: "Check your inbox for further instructions"
+          resetOn: "Check your inbox for further instructions",
       } 
       case "RESET_PASSWORD_ERROR": 
       return {

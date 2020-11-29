@@ -87,4 +87,5 @@ p
   .app {
       position: relative;
       background-color:#F9F9F9;
+      min-height: 1200px;
   }
